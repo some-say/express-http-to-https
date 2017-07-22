@@ -11,7 +11,7 @@ function redirectToHTTPS (ignoreHosts = [], ignoreRoutes = []) {
 
     if (isNotSecure && !searchIgnore(req.get('host'), ignoreHosts) &&
       !searchIgnore(req.path, ignoreRoutes)) {
-      return res.redirect('https://' + req.get('host') + req.url)
+      return res.redirect(307, 'https://' + req.get('host') + req.url)
     }
 
     next()
